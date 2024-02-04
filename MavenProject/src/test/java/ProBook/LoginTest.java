@@ -77,7 +77,7 @@ public class LoginTest {
         System.setProperty("webdriver.gecko.driver","/usr/local/bin/geckodriver");
         // Invocation du navigateur Firefox, qui sera identifié avec le nom "driver".
         FirefoxOptions options = new FirefoxOptions();
-        options.addArguments("-headless");
+        options.addArguments("--headless");
         options.addArguments("--lang=fr-FR");
         driver = new FirefoxDriver(options);
         // Ouvrir la page "http://probook.progideo.com".
