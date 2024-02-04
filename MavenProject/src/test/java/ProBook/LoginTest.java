@@ -17,6 +17,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -26,11 +28,11 @@ import org.testng.annotations.AfterMethod;
 public class LoginTest {
 	// Déclaration des variables que nous allons utiliser dans ce script.
     String url = "https://probook.progideo.com";
-    String expectedTitle1 = "Vue d'ensemble - ProBook";
+    String expectedTitle1 = "Dashboard - ProBook";
     String actualTitle1 = null;
     String username = "jbcrouigneau";
     String password = "samira;camilyes!";
-    String expectedTitle2 = "(3) Vue d'ensemble - ProBook";
+    String expectedTitle2 = "(3) Dashboard - ProBook";
     String actualTitle2 = null;
     WebDriver driver;
 
@@ -71,9 +73,13 @@ public class LoginTest {
 	@BeforeMethod
 	public void beforeMethod() {
         // Chemin vers le driver Gecko (pour Firefox uniquement)
-        System.setProperty("webdriver.gecko.driver","/Users/jbcrouigneau/eclipse/drivers/geckodriver");
+        //System.setProperty("webdriver.gecko.driver","/Users/jbcrouigneau/eclipse/drivers/geckodriver");
+        System.setProperty("webdriver.gecko.driver","/user/local/bin/geckodriver");
         // Invocation du navigateur Firefox, qui sera identifié avec le nom "driver".
-        driver = new FirefoxDriver();
+        FirefoxOptions options = new FirefoxOptions();
+        options.addArguments("-headless");
+        options.addArguments("--lang=fr-FR");
+        driver = new FirefoxDriver(options);
         // Ouvrir la page "http://probook.progideo.com".
         driver.get(url);
 	}
