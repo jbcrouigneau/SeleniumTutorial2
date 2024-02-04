@@ -74,7 +74,7 @@ public class LoginTest {
 	public void beforeMethod() {
         // Chemin vers le driver Gecko (pour Firefox uniquement)
         //System.setProperty("webdriver.gecko.driver","/Users/jbcrouigneau/eclipse/drivers/geckodriver");
-        System.setProperty("webdriver.gecko.driver","/snap/bin/geckodriver");
+        System.setProperty("webdriver.gecko.driver","/usr/local/bin/geckodriver");
         // Invocation du navigateur Firefox, qui sera identifié avec le nom "driver".
         FirefoxOptions options = new FirefoxOptions();
         options.addArguments("--headless");
